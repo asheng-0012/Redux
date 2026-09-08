@@ -1,4 +1,4 @@
-import { Route,Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Products from './pages/Products.jsx'
 import Wishlist from './pages/Wishlist.jsx'
@@ -13,17 +13,21 @@ import Footer from './components/Footer.jsx'
 function App() {
 
   return (
-    <>
-      <Routes>
-        <Route path='/' element={<Products/>} />
-        <Route path='/wishlist' element={<Wishlist/>} />
-        <Route path='/cart' element={<Cart/>} />
-        <Route path='/*' element={<PageNotFound/>} />
-        <Route path='/products/:id' element={<View/>} />
+    <div className='d-flex flex-column min-vh-100'>
 
-      </Routes>
-      <Footer/>
-    </>
+      <main className='flex-grow-1'>
+        <Routes>
+          <Route path='/' element={<Products />} />
+          <Route path='/wishlist' element={<Wishlist />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/products/:id' element={<View />} />
+          <Route path='/*' element={<PageNotFound />} />
+        </Routes>
+      </main>
+
+      <Footer />
+
+    </div>
   )
 }
 
