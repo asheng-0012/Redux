@@ -3,23 +3,28 @@ import Header from '../components/Header.jsx'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse } from '@fortawesome/free-solid-svg-icons'
-
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllProducts } from '../redux/slices/productSlice.js'
 
 
 function Products() {
+    const { loading, allProducts, error } = useSelector((state) => state.productReducer)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getAllProducts())
+    }, []);
 
     return (
         <>
-            <FontAwesomeIcon icon={faHouse} /><Header />
-            <div className='text-center my-3 mx-5'>
-                <h1 className='mb-5'>Products</h1>
-                <div className='row pt-5'>
+            <Header />
+            <div className='text-center mx-5' style={{ paddingTop: '100px' }}>
+                <div className='row'>
                     {/* Duplicate column Accordingly */}
                     <div className='col-md-3 mb-2'>
                         {/* card */}
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src="https://cdn.prod.website-files.com/68943e66eaa53340cd489406/68be85d9f1c5d4f164d720b0_6735ebbc0a7dec8625bf45ff_8_Creative_Product_Photography_Ideas_You_Need_to_Try.webp"  />
+                            <Card.Img variant="top" src="https://cdn.prod.website-files.com/68943e66eaa53340cd489406/68be85d9f1c5d4f164d720b0_6735ebbc0a7dec8625bf45ff_8_Creative_Product_Photography_Ideas_You_Need_to_Try.webp" />
                             <Card.Body>
                                 <Card.Title>Card Title</Card.Title>
                                 <Card.Text>

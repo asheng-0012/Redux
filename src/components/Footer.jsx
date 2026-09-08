@@ -2,13 +2,13 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-primary text-white py-5">
+    <footer className="bg-primary text-white py-4">
       <div className="container">
         <div className="row">
 
           {/* E Cart */}
-          <div className="col-lg-5 mb-4">
-            <h2 className="mb-3">🚚 E Cart</h2>
+          <div className="col-lg-5 mb-5">
+            <h2 className="mb-3">E Cart</h2>
 
             <p className="mb-4">
               Designed and built with all the love in the world by the

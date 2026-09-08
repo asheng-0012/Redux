@@ -7,7 +7,7 @@ import Badge from 'react-bootstrap/Badge';
 
 function Header() {
   return (
-    <Navbar expand="lg" className="bg-primary fixed-top" data-bs-theme="dark">
+    <Navbar expand="lg" className="bg-primary fixed-top py-2" data-bs-theme="dark">
       <Container>
         <Navbar.Brand><Link to={'/'} className="text-white text-decoration-none fw-bold"><FontAwesomeIcon icon={faTruckFast} />ECART</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
