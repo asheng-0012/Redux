@@ -4,8 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import Badge from 'react-bootstrap/Badge';
+import { useDispatch } from 'react-redux'
+import { searchProduct } from '../redux/slices/productSlice.js'
 
-function Header() {
+function Header({insideHeader}) {
+  const dispatch = useDispatch();
+
   return (
     <Navbar expand="lg" className="bg-primary fixed-top py-2" data-bs-theme="dark">
       <Container>
@@ -13,7 +17,8 @@ function Header() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex align-items-center gap-2">
-            <Nav.Item><input type="text" placeholder="Search..." className="form-control rounded-3" /></Nav.Item>
+
+            { insideHeader && <Nav.Item><input type="text" placeholder="Search..." className="form-control rounded-3" onChange={(e) => dispatch(searchProduct(e.target.value))} /></Nav.Item>}
             <Nav.Item><Link to={'/wishlist'} className="text-white text-decoration-none fw-bold">Wishlist<Badge pill bg="light" text="dark">0</Badge></Link></Nav.Item>
             <Nav.Item><Link to={'/cart'} className="text-white text-decoration-none fw-bold">Cart<Badge pill bg="light" text="dark">0</Badge></Link></Nav.Item>
           </Nav>

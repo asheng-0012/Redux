@@ -12,29 +12,37 @@ const productSlice = createSlice({
   initialState:{
         loading:true,
         allProducts:[],
+        dummyALlProducts:[],
         error:"",
   },
   reducers: {
     // resolves only synchronous actions, for asynchronous actions we use extraReducers
+    searchProduct:(state,action)=>{
+      state.allProducts = state.dummyALlProducts.filter((item)=>item.title.toLowerCase().includes(action.payload.toLowerCase()))
+    }
 
   },
   extraReducers: (builder) => {
     builder.addCase(getAllProducts.fulfilled, (state, action) => {
       state.loading = false;
       state.allProducts = action.payload;
+      state.dummyALlProducts = action.payload;
       state.error = "";
     })
     builder.addCase(getAllProducts.pending, (state, action) => {
       state.loading = true;
       state.allProducts = [];
+      state.dummyALlProducts = [];
       state.error = "";
     })
     builder.addCase(getAllProducts.rejected, (state, action) => {
       state.loading = false;
       state.allProducts = [];
+      state.dummyALlProducts = [];
       state.error = "API CALL FAILED";
     })
   }
 })
 
 export default productSlice.reducer;
+export const {searchProduct} = productSlice.actions;
