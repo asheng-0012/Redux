@@ -51,11 +51,11 @@ function Products() {
                             
                                 {/* card */}
                                 
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card style={{ width: '18rem' , height: '25rem'}} className='my-3'>
                             <Card.Img variant="top" src={product.thumbnail} />
                             <Card.Body>
                                 <Card.Title>{product?.title}</Card.Title>
-                                <Link to={'/products/' + product?.id} className='btn btn-primary'>View Product</Link>
+                                <Link to={'/products/' + product?.id} className='btn btn-primary rounded'>View Product</Link>
                             </Card.Body>
                         </Card>
                         </div>
